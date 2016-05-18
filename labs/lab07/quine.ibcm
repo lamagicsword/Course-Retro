@@ -1,0 +1,19 @@
+C002	000				jmp		start	skip around the vars
+3000	001		ldit	dw		3000
+3010	002		start	loadH			read array size
+6012	003				sub		i		
+E00E	004				jmpe			jump if size-i<0
+3001	005				load	ldit	form inst to load
+5012	006				add		i		
+4008	007				store	doit	plant inst into code
+0000	008		doit	dw		0				
+1800	009				printH
+3012	00A				load			i=i+1
+5010	00B				add		1		
+4012	00C				store	i
+C002	00D				jmp		start
+0000	00E		halt	
+0001	00F 	one		dw				
+0013	010				dw				array size
+B000	Yujian Li 03/24/16 Section 102
+0000	012		i		dw		0		int i

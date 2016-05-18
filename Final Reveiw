@@ -1,0 +1,170 @@
+Final Review
+
+09.
+* pointer Rectangle *xx
+	dereference all other times
+
+& reference List & xx = xxxx;
+	address of xxxx
+	& x is the address of a variable
+
+pointers have types 
+	int * a: a is an int pointer
+
+reference(dereference):
+	int y = 5;
+	int &x = y;
+	cout<<x<<endl will get us the value 5 (auto dereference)
+	cout<<&x<<endl will give us the address
+
+pitfalls:
+	uninitialized pointers
+	dereference NULL pointers
+	dangling pointer
+	lossing address of dynamically allocated memory
+
+C++ inheritance
+	everything inherits from Object (in java)
+	sub class (child class)
+	inherits: data members defined in the parent class, member function in the parent class, same initial data layout as the base class
+	can add: new data member, member functions, constructors and destructors
+	order: base constructor called, derived constructor called, derived destructor called, base destructor called.
+	problem with single inheritance: parameter may not be a primitive type or it needs to be serializable(another method)
+	c++ has multiple inheritance class Sphere:public Shape, public Comparable, public Serializable{}
+	Java has fake multiple inheritance
+
+Dispatch:
+	Static:decision on which member function to invoke made using complie-time type of an object
+	Dynamic:decision on which member funciton to invoke made using run-time type of an object
+		incur running time (program must maintain extra info) complier must generate code to determine which function to invoke.
+		requires "virtual" as keyword
+		Java is virtual everywhere
+		virtual method table:multiple dereferencing process
+
+Abstrct Class:
+	must be virtual
+	pure virtual function: no body definition in cpp file.
+	class can't be instantiated (no method body)
+	subclass will define its own method bodies
+
+Semantic ambiguities
+	replicated and shared multiple inheritance
+	replicated is default method while shared is defined by "Virtual"
+	four types of multi inheritance: replicated, shared, non-replicated, mix-in
+
+Covariant Arrays(need to edit)
+
+C++11:
+	Changes:
+		move constructors
+		uniform initialization
+		range-based for loops
+		new function/method syntax
+		new NULL
+		smart pointers
+		
+10.
+Priority Queues:
+	basic opertaion:insert,findMin,deleteMin
+	runtime:
+	we would like findMin: always constant
+		      insert: typical constant worst case logn
+		      deleteMin: worst and average case logn
+	
+Binary Heaps:
+	one possible implementation of priority queue
+	it is a bst
+	perfect binary tree: all leaf nodes at the same depth, all internal node have 2 children: height h 2^(h+1) - 1 nodes, 2^h - 1 non-leaves, 2^h leaves.
+	full binary tree: each node has exactly zero or two children
+	binary heap: almost complete binary tree(completely filled except at the bottom), filled left to right.
+	representing in array is better than in pointers since it saves space, time, and easy to locate the parent.
+	ordering: children value < parent value
+	heap sort O(nlogn)
+
+Compression:
+	lossless compression vs lossy compression x=x` vs x!=x`
+	compression ratio: x/y
+	compression phases:
+		1. determine the frequency 
+		2. build a tree of prefix codes
+		3. write the codes/prefix code in outputfile
+		4. re-read the file and write the prefix code for each character read
+	decompression phahses:
+		1. read in prefix code structure from the compressed file
+		2. read in one bit at a time and move down until a leaf node is reached
+		3. write the character on the leaf into the decompressed file
+		4. repeat if there is still input
+
+11. 
+Graph:
+	G=(V,E) V are vertices and E are edges
+	Edges are of the form (v,w) where v,w belongs to V
+		ordered pair are direct graphs (digraph)
+		unordered pair are undirect graph
+	a weight or cost can be associated with each edge 
+	w is adjacent to v if (v,w) blongs to E
+	path: sequence of verticles w1,....,wn such that (wi,wi+1) belongs to E for i<=1<n
+	length of a path: number of edges in the path
+	simple path: all verticles are distinct
+	cycle:
+		directed graph: path of length>=1 such that w1=wn
+		undirected graph: same as above except all edges are distinct
+	connected: there is a path from every vertex to every other vertex
+	loop: (v,v) belongs to E
+	complete graph: there is an edge between every pair of verticles
+	directed acyclic graph: no cycles
+	strongly connected: path from every vertex to other vertex
+	weakly connected: the underlying undirected graph is connected
+	Can be represented by adjacency matrix adjacency list	
+	
+Topological Sort:
+	Given a "DAG" and compare the indegress of each verticle 
+	indegree of v: the number of incoming edges of v
+
+Shorstest path:
+	unweighted shortest path
+	dijkstra:initialize each vertex distance as infinity
+
+Traveling Salesman:
+	Hamiltonian Path
+
+Minimum Spanning Tree:
+	spanning tree of a graph G is a subgraph of G that contains every vertex of G in a tree
+	any connected graph has a spanning tree
+	any two spanning tree of a graph has the same number of nodes
+	
+12. 
+Memory:
+	memory hierarchy:
+	static/dynamic allocation: static: space required is known before the program starts
+				   dynamic: space required is unknown before the program starts (usually placed on the heap)
+	memory in c:
+		stack:
+			managed by compiler automatically
+			lifetime is determined by program scope
+			cannot outlive 	procedure return
+			address space grow "down" from the top
+		heap:	
+			managed by programmer explicitly
+			lifetime is controlled by programmer 
+			lives until freed by program
+			address space grow "up" from the bottom
+	x86 callee epilogue:
+		recover saved registers
+		reverse of push order
+		pop esi
+		pop edi
+		
+		deallocate loca var(s)
+		move esp, ebp
+		
+		restore base pointer
+		pop ebp
+		
+		return
+		ret
+	malloc
+
+	C-style string is a pointer to a char
+
+

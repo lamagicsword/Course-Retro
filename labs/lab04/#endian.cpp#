@@ -1,0 +1,10 @@
+//A program that helps to convert between the big endian and little endian form in hex digits
+
+#include <iostream>
+
+using namespace std;
+
+void btol (int a){
+	char b = (char)a;
+	
+}

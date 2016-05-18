@@ -1,0 +1,76 @@
+C00C	000				jmp		start	skip around the vars
+0000	001		i		dw		0		int i
+0000	002		j		dw		0		int j
+0000	003		a		dw		0		int a[] base address
+0000	004		n		dw		0		array size
+0000	005		zero	dw		0
+0001	006		one		dw		1
+3000	007		ldit	dw		3000	
+0000	008		temp	dw		0		temp value
+0000	009		s		dw		0		a[j]
+0000	00A		q		dw		0		a[j-1]
+4000	00B		sdit	dw		4000
+3046	00C		start	load			load array address
+4003	00D				store	a				
+3045	00E				load			load array size
+4004	00F				store   n
+3045	010				load	max		load max value
+6006	011				sub		1		j=max-1
+4002	012				store	j		
+3005	013				load	0		i=0;
+4001	014				store	i		
+3004	015		loop1	load	n		if(i>=n) goto xit
+6001	016				sub		i
+E043	017				jmpl	xit
+D043	018				jmpe	xit
+3002	019		loop2	load	j		if(i>=j) goto loop
+6001	01A				sub		i
+E015	01B				jmpl	loop
+D015	01C				jmpe	loop
+3007	01D				load	ldit1	form inst to acquire a[i]
+5003	01E				add		a
+5002	01F				add		j
+4026	020				store	doit1	plant inst into code
+3007	021				load	ldit2	form inst to acquire a[i]
+5003	022				add		a
+5002	023				add		j
+6006	024				sub		1
+4028	025				store	doit2	plant inst into code
+0000	026		doit	dw		0			  
+4009	027				store	s
+300A	028				load	q		q=a[j-1]
+4009	029				store	q
+300A	02A				load	q		if(q<=s) goto end
+6009	02B				sub		s		
+E03B	02C				jmpl	end
+D03B	02D				jmpe	end
+3009	02E				load	s		temp=s
+4008	02F				store	temp
+300B	030				load	ldit3	modifies a[j]
+5003	031				add		a
+5002	032				add		j
+403A	033				store	doit3	plant inst into code
+300B	034				load	ldit4	modifies a[j-1]
+5003	035				add		a
+5002	036				add		j	
+6006	037				sub		1		
+4039	038				store	doit4	plant inst into code
+3009	039				load	s
+3008	03A				load	tem
+3002	03B				load	j		j--
+6006	03C				add		1
+4002	03D				store	j		
+C019	03E				jmp		loop2
+3001	03F				load	i		i++
+5006	040				add		1
+4001	041				store	i
+C015	042				jmp		loop1
+0000	043				halt
+B000 Array Info:
+0005 	045		max		5		max size
+001A	046		a[]		26		base address
+0009	047		a[0]	9		
+0001	048		a[1]	1
+0004	049		a[2]	4
+0002	04A		a[3]	2
+000A	04B		a[4]	10

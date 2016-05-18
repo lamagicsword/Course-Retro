@@ -1,0 +1,79 @@
+C00C	000				jmp		start	skip around the vars
+0000	001		i		dw		0		int i
+0000	002		j		dw		0		int j
+0000	003		a		dw		0		int a[] base address
+0000	004		n		dw		0		array size
+0000	005		zero	dw		0
+0001	006		one		dw		1
+3000	007		ldit	dw		3000	
+0000	008		temp	dw		0		temp value
+0000	009		s		dw		0		a[j]
+0000	00A		q		dw		0		a[j-1]
+4000	00B		sdit	dw		4000
+3048	00C		start	load			load array address
+4003	00D				store	a				
+3047	00E				load			load array size
+4004	00F				store   n		
+3005	010				load	0		i=0;
+4001	011				store	i		
+3004	012		loop1	load	n		if(i>=n) goto xit
+6001	013				sub		i
+E045	014				jmpl	xit
+D045	015				jmpe	xit
+3047	016				load	max		load max value
+6006	017				sub		1		j=max-1
+4002	018				store	j
+3002	019		loop2	load	j		if(i>=j) goto loop
+6001	01A				sub		i
+E041	01B				jmpl	loop
+D041	01C				jmpe	loop
+3007	01D				load	ldit1	form inst to acquire a[i]
+5003	01E				add		a
+5002	01F				add		j
+4026	020				store	doit1	plant inst into code
+3007	021				load	ldit2	form inst to acquire a[i]
+5003	022				add		a
+5002	023				add		j
+6006	024				sub		1
+4028	025				store	doit2	plant inst into code
+0000	026		doit1	dw		0		s=a[j]	  
+4009	027				store	s
+0000	028		doit2	dw		0		q=a[j-1]
+400A	029				store	q
+300A	02A				load	q		if(q<=s) goto end
+6009	02B				sub		s		
+E03D	02C				jmpl	end
+D03D	02D				jmpe	end
+3009	02E				load	s		temp=s
+4008	02F				store	temp
+300B	030				load	ldit3	modifies a[j]
+5003	031				add		a
+5002	032				add		j
+403A	033				store	doit3	plant inst into code
+300B	034				load	ldit4	modifies a[j-1]
+5003	035				add		a
+5002	036				add		j	
+6006	037				sub		1		
+403C	038				store	doit4	plant inst into code
+300A	039				load	q
+0000	03A				dw		
+3008	03B				load	tem
+0000	03C				dw
+3002	03D				load	j		j--
+6006	03E				sub		1
+4002	03F				store	j		
+C019	040				jmp		loop2
+3001	041				load	i		i++
+5006	042				add		1
+4001	043				store	i
+C012	044				jmp		loop1
+0000	045				halt
+B000 Array Info:
+0005 	047		max		5		max size
+0049	048		a[]				base address
+0003	049		a[0]	3		
+0006	04A		a[1]	6
+0001	04B		a[2]	1
+0002	04C		a[3]	2
+000A	04D		a[4]	10
+B000 Yujian Li (yl7kd) 03/22/16	Section 102

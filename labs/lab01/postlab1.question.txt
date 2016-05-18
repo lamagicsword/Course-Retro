@@ -1,0 +1,5 @@
+//Yujian Li (yl7kd) Wed 1/27/16 postlab1.question.txt
+
+1.As I see from the list.h file, it uses a lot of of pointers to construcut the method. I want to know does the pointer follows the rule of call by reference or it can be called by value?
+
+2.On the list.cpp file, I found out when the licked list tried to call certain function uses a lot "->" operator which is different from Java language which uses "xx.function()". I wonder if this is something sepcial for linked-list or pointer. 

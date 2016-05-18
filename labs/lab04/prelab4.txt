@@ -1,0 +1,62 @@
+//Yujian Li floatingpoint.pdf 02/15/16
+
+Decimal to Binary: 
+
+Floating point number: -9.671875
+	because it is a signed floating point number, last digit = 1
+exponent:9.671875/2^3=1.208984375
+	exponent is 3+127=130
+	130 = 2^7 + 2^1 = 10000010
+Mantissa:
+	1.208984375-1 = 0.208984375
+	0.208984375*2 = 0.41796875 "0"
+	0.41796875*2  = 0.8359375  "0"
+	0.8359375*2   = 1.671875   "1"
+	0.671875*2    = 1.34375    "1"
+	0.34375*2     = 0.6875     "0"
+	0.6875*2      = 1.375      "1"
+	0.375*2       = 0.75       "0"
+	0.75*2        = 1.5        "1"
+	0.5*2         = 1          "1"
+
+Normalizing:
+	mantissa  = 00110101100000000000000
+	exponent  = 10000010
+	sign      = 1	
+
+The Binary number is 11000001000110101100000000000000
+In hex is 1100=c
+	  0001=1
+	  0001=1
+	  1010=a
+	  1100=c
+	  0000=0
+	  0000=0
+	  0000=0
+	0xc11ac000
+	In Little Endian form is 0x00c01ac1
+
+Binary To Decimal:
+
+Floating point number :0x00c01f40
+	To Big Endian form: 0x401fc000
+	Hex to binary:
+	4=>0100
+	0=>0000
+	1=>0001
+	f=>1111
+	c=>1100
+	0=>0000
+	0=>0000
+	0=>0000
+Binary Number:01000000000111111100000000000000
+	Signed = 0 = postive
+	exponent : 10000000 = 2^7-127 = 128-127=
+		exponent = 1 	
+	Mantaissa : 00111111100000000000000
+	=2^-3+2^-4+2^-5+2^-6+2^-7+2^-8+2^-9
+	=0.248046
+	Mantaissa = 0.248046+1 =1.248046875
+	Decimal = Mantaissa*2^exponent = 2.49609375
+
+

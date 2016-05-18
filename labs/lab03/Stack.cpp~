@@ -1,0 +1,50 @@
+//Yujian Li (yl7kd) 02/09/16 Stack.cpp
+
+#include "Stack.h"
+#include <iostream>
+
+using namespace std;
+
+
+//Constructor
+
+Stack::Stack(){
+	head = new StackNode;
+	head->next = NULL;
+	count = 0;
+}
+
+Stack::~Stack(){
+	while(!empty()){
+		pop();
+	}
+}
+
+int Stack::top(){
+	return head->next->value;
+}
+
+void Stack::pop(){
+	StackNode *a = head;
+	head = a->next;
+	delete a;
+	count --;	
+}
+
+void Stack::push(int e){
+	StackNode *a = new StackNode();
+	StackNode *b = head;
+	StackNode *c = head->next;
+	a->next = c;
+	b->next = a;
+	a->value = e;
+	count++;
+}
+
+bool Stack:: empty(){
+	return head->next==NULL;
+}
+
+int Stack:: size(){
+	return count;
+}

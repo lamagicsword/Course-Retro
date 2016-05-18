@@ -1,0 +1,43 @@
+mem		locn	label	op		addr	comments
+
+C00A	000				jmp		start	skip around the variables
+0000	001		i		dw		0		int i
+0000	002		s		dw		0		int s
+0000	003		a		dw		0		int a[]
+0000	004		n		dw		0		
+0000	005		zero	dw		0		constant value zero
+0001	006		one		dw		1		constant value one
+5000	007		adit	dw		5000
+0000	008		h		dw 		0		int h
+0000	009
+1000	00A		start	readH			read array address	
+4003	00B				store	a		
+1000	00C				readH			read array size
+4004	00D				store	n		i = 0; s = 0
+3005	00E				load	zero	
+4001	00F				store	i
+4002	010				store	s		
+3004	011		loop	load	n		if(i>=n) goto xit
+6001	012				sub		i		
+E026	013				jmpl	xit
+D026	014				jmpe	xit
+3007	015				load	adit	from the instruction to add a[i]
+5003	016				add		a
+5001	017				add		i
+401A	018				store	doit	plant the inst into the program
+3008	019				load	h		h += a[i]
+b000	01A		doit	nop		
+4008	01B				store	h
+3002	01C				load	s		s -= a[i]
+6008	01D				sub  				
+E021	01E				jmpl	xit
+D023	01F				jmpe	xit
+C023	020				jmp		xit
+3008	021				load	h
+4002	022				store	s
+3001	023				load	i		i += 1
+5006	024				add		one		  
+4001	025				store	i
+3002	026		xit		load	s		print s
+1800	027				printH
+0000	028				halt	

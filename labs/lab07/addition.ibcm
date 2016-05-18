@@ -1,0 +1,27 @@
+C007	000		jmp		start			skip around the variables  
+0000	001		i		dw		0		int i
+0000	002		s		dw		0		int s
+0000	003		o		dw		0		int o
+0000	004		sum		dw		0		int sum
+0001	005		one		dw		1		constant value 1
+0000	006		zero	dw		0		constant value 0
+1000	007		start	readH			read i
+4001	008				store	i		
+1000	009		start	readH			read s
+4002	00A				store	s		
+1000	00B		start	readH			read o
+4003	00C				store 	o		
+3004	00D		loop	load	sum		sum += i
+5001	00E				add		i		sum += s
+5002	00F				add		s		sum += o
+5003	010				add		o		
+D013	011				jmpe	xit		if(sum=0) goto xit
+C007	012				jmp		start	else goto begining
+3001	013		xit		load	i		print i
+1800	014				printH			
+3002	015				load	s		print s
+1800	016				printH			
+3003	017				load	o		print o
+1800	018				printH			
+0000	019				halt			halt
+B000	Yujian Li		03/21/16		Section 102

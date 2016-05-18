@@ -1,0 +1,27 @@
+//Yujian Li (yl7kd) 02/09/16 StackNode.h
+
+#ifndef STACKNODE_H
+#define STACKNODE_H
+
+#include <iostream>
+
+using namespace std;
+
+class StackNode {
+
+public:
+	//Constructor
+	StackNode();
+
+
+private:
+
+	int value;
+
+	StackNode *next;
+
+	friend class Stack;
+};
+
+
+#endif

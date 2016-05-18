@@ -1,0 +1,108 @@
+1101 1110 1010 1101 1100 0000 1101 1110
+D    E    A    D    E    0    D     E 
+0xDEADE0DE
+lITTLE ENDIAN:
+0XDEE0ADDE
+
+Seg Fault example:
+int *x = NULL;
+*x = 1000;
+	
+int *x;
+*x = 1000;
+
+int *x;
+x = 1000;
+*x = 50;
+
+Call delete on an object:
+	Pedram *p = new Pedram();
+	delete p;
+It will call the destructor,deallocate its memory and free up all the space. 
+
+Delete will cause to deallocate the memory while the pointer will still remain the same. 
+
+Because we have already gained access of the object therefore there is no need to create a reference
+
+Abstract Data Type: Allows users to not care about its implementations but rather talks about their properties
+
+Run-time of Data Structure:
+List Implementation:
+	LL: Insert() = O(C) (constant) 
+	    Remove() = O(N) (linear)
+	    Fine() = O(N) (linear)
+
+	Vec: Insert() = O(C)(constant)(linear when it was out of the boundary) 
+	     Remove() = O(N)(linear)
+	     Find() = O(n)(linear)
+Stack
+ 	vec insert constant (linear wrost case)
+	    remove constant 
+	    find   constant (N/A)
+
+	ll  insert constant
+	    remove constant
+	    find   constnat (N/A)
+Queue
+       Same as List Implementation but a limited list
+	Does not have a find method.
+
+Iterators:
+	It can serves its purpose without limited by the boundary';
+
+returns the xth bits of an integer
+Loop Method:
+	int bit13 (int x){
+	int count = 0;
+	int a = 0;
+	while(count<12){
+	a=x%2;
+	coun++;
+	}
+	return a;
+	}	
+	
+Bit Shifting Method:
+	int bit13 (int x){
+	int mask = 1<<12;
+	x=x&mask;
+	if(x==0){
+	return 0;
+	}
+	else(
+	return 1;
+	}
+	}	
+
+1.Because when we are able to gain direct access to the variable in this method therefore there is no need to create a reference as oppose to use the variable outside of the method
+
+2.When writing a program, the computer offers us certain amount of memory space called segamentation to write the method. However, when some of the method was writing out of the given segment, it will create a segmentation fault error to the program
+
+3.the value in the array has been deleted and the memory space has been deallocated. We need to initialize the pointer again before using or its undefined behavior may cause segmentation fault error
+
+4.
+
+
+References vs pointers
+
+Why references?
+
+List (insert at tail) vector vs linkedlist
+
+GDB command
+
+Memory Hole
+	void hole{
+	int *a  = new int;
+	*data = 1;
+	}
+
+Coversion 2-8
+
+
+
+
+
+
+
+

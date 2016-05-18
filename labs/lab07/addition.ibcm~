@@ -1,0 +1,8 @@
+mem		locn	label	op		addr	comments
+C006	000				jmp		start	skip around the variables  
+0000	001		i		dw		0		int i
+0000	002		s		dw		0		int s
+0000	003		sum		dw		0		int sum
+0001	004		one		dw		1		constant value 1
+0000	005		zero	dw		0
+1000	006		start	readH			read 

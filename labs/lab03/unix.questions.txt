@@ -1,0 +1,3 @@
+//Yujian Li (yl7kd) 02/08/16 unix.question.txt
+
+I have a question about the unix system that what type of sorting does the sort command use (in big o notation)

@@ -1,0 +1,13 @@
+//Yujian Li (yl7kd) 02/09/16 StackNode.cpp
+
+#include"StackNode.h"
+#include <iostream>
+
+using namespace std;
+
+//Constructor
+
+StackNode::StackNode(){
+	value=0;
+	next=NULL;
+}

@@ -1,0 +1,16 @@
+#Yujian Li(ylk7d) 04/25/16 Section 102 Makefile
+
+CXX = clang++ -m32
+
+CXXFLAGS = -Wall -g
+
+OFILES = topological.cpp
+
+.SUFFIXES: .o .cpp
+
+main: $(OFILES)
+	$(CXX) $(CXXFLAGE) $(OFILES)
+		doxygen
+
+clean:
+		/bin/rm -f *.o *~

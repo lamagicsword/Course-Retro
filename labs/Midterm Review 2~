@@ -1,0 +1,42 @@
+R&B Tree vs AVL tree
+
+	benefit:
+		not as balanced as avl tree (faster, don't need to rotate as much when instering)
+		same find runtime
+ 
+How much can a r&b tree go out of the balance (maximum) 
+	
+recursion in assembly code:
+	calling conventions:
+		caller callee rules:
+			fib
+Overhead:
+	rotation's efforts will not payoff until the n becomes very big which makes it do extra efforts
+
+what is more likly to occur:lienar runtime of a binary search tree or linear runtime for a hash table
+	binary search tree is linaer if the input is sorted, hashtable is not likely to be linear unless everything collides
+
+three types of optimizations for x86 code:
+	use registers instead of memory
+	tail recursion(reuse the activation records)
+	
+When n is small, don't trust big theta.
+When the worst case is very rare, don't trust
+When equivalnet class (when they have the same runtime (all logn)) don't trust big theta. 
+
+seperate chaining: easy implement but requires more memory
+linear probing:    but a lof of clusterings (a lot of empty spots)(long time to find) (don't care about thrashing)(don't care about the size of the hashtable) (
+quadric probing:   not a lot of clusterings, but slower and still has certain clusterings
+double hash	   uniform spaced and faster, but lots of work thing of hash	
+
+thrashing:
+	keep looping while not able to find an empty spot
+
+moding by prime number tend to give a better distribution
+
+delete: easy for separte chaining but requires a flag for indication in a later find. 
+
+
+
+
+

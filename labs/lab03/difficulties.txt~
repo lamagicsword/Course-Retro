@@ -1,0 +1,3 @@
+//Yujian Li(yl7kd) 02/11/16 difficulties.txt
+
+During the process of completing the logic inside the postfix-calculator, I realized that I have to use the top and pop method for addition, subtraction, multiplication, and division. In order to make my code more succint, I decided to combine the two method into one popTop() method which perform both action at the same time. During the in lab, I also had to concern the keyboard input too, especially the process of determining the negative sign or the minus sign. In the end, I used the advantage of the length of the string to identify one from another. After completing the general structure, it was rather easy to implement the stack from the linked-list structure we implemented before.

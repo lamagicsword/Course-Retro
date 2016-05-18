@@ -1,0 +1,46 @@
+//Yujian Li(yl7kd) 04/29/16 Section 102 linkedlist.m
+
+#import <stdio.h>
+
+
+#import <Foundation/NSObject.h>
+#import "LinkedNode.h"
+
+@interface ListNode {
+	ListNode *_next;
+	ListNode string;
+}
+@end
+@implementation 
+
+@end
+
+int main(void){
+	ListNode *head = [ListNode new];
+	ListNode *cur = [ListNode new];
+	int size;   //initialze the size of the linkedlist
+	printf(" Enter how many values to input: ");
+	scanf("%d",&val1);
+	//initialize the head array
+	head = [[ListNode alloc] initWithValue]
+	cur = head;
+	//push the designated node into the linkedlist
+	for(int i=0; i<size;i++){
+		int val;
+		printf("Enter value %d: ",i+1);
+		scanf("%d",&val);		
+	}
+	//print out the linked list 
+	cur=head;
+	for(int j = 0; j<size; j++){
+		printf("%d \n", cur-val);
+		cur=cur->next;
+	}
+	[head release];
+	[cur release];
+	return 0;
+}
+
+
+
+
